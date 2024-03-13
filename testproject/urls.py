@@ -15,19 +15,17 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
 from django.conf import settings
 from django.conf.urls.static import static
 from django.urls import path
 
+def trigger_error(request):
+    request.nonexistent_method()
+
+
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('sentry-debug/', trigger_error),
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
-def trigger_error(request):
-    division_by_zero = 1 / 0
 
-urlpatterns = [
-    path('sentry-debug/', trigger_error),
-    # ...
-]

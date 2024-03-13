@@ -14,11 +14,17 @@ from pathlib import Path
 import sentry_sdk
 
 sentry_sdk.init(
-    dsn="https://f25b49501fd222f3e19444815c814d43@o4506904121376768.ingest.us.sentry.io/4506904123670528",
-
+    dsn="https://6f60eec26fda1464bc9eeff4fad8e237@o4506904121376768.ingest.us.sentry.io/4506904290787328",
+    # Set traces_sample_rate to 1.0 to capture 100%
+    # of transactions for performance monitoring.
     traces_sample_rate=1.0,
+    # Set profiles_sample_rate to 1.0 to profile 100%
+    # of sampled transactions.
+    # We recommend adjusting this value in production.
     profiles_sample_rate=1.0,
 )
+
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
