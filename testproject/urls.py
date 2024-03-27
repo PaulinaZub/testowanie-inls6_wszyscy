@@ -17,7 +17,9 @@ Including another URLconf
 from django.contrib import admin
 from django.conf import settings
 from django.conf.urls.static import static
-from django.urls import path
+from django.urls import path, include
+from django.contrib import admin
+
 
 def trigger_error(request):
     request.nonexistent_method()
@@ -25,6 +27,7 @@ def trigger_error(request):
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('testapp/', include('testapp.urls')),
     path('sentry-debug/', trigger_error),
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
