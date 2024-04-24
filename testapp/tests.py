@@ -67,7 +67,7 @@ class BusTest(TestCase):
 
         Bus.objects.create(nameBus="Another Test Bus",
                            content="to jest autobus",
-                           popular=1,
+                           popular=0,
                            year=2010,
                            price=90
                            )
