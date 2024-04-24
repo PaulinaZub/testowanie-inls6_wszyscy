@@ -26,7 +26,7 @@ class Book(models.Model):
     def get_absolute_url(self):
         return reverse('book-detail', kwargs={'pk': self.pk})
 
-    def reverse(self):
+    def reserve(self):
         self.available = False
         self.save()
 
